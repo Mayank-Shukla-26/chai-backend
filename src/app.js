@@ -10,21 +10,21 @@ const app = express();
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
     credentials: true
-}))
+}));
 
 // Parse incoming JSON request bodies and limit their size to 16 KB.
-app.use(express.json({limit: "16kb"}))
+app.use(express.json({limit: "16kb"}));
 
 // Parse URL-encoded form data and also limit its size.
 app.use(express.urlencoded({extended: true, limit:
     "16kb"
-}))
+}));
 
 // Serve static files from the public directory.
 app.use(express.static("public"));
 
 // Parse cookies from incoming requests.
-app.use(cookieParser())
+app.use(cookieParser());
 
 // routes import
 import userRouter from './routes/user.routes.js';
